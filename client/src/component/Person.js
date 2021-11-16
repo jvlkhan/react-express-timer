@@ -37,7 +37,22 @@ const Person = () => {
 
     if (time !== 0 && name.length >= 1) {
       setPerson((prev) => [newPerson, ...prev]);
+      postPerson(newPerson);
     }
+  };
+
+  const postPerson = (person) => {
+    const initConfig = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(person),
+    };
+
+    fetch("/backend", initConfig)
+      .then((res) => console.log(res))
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const removePerson = (id) => {
