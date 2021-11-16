@@ -1,27 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import PersonProps from "./PersonProps";
 
 const Person = () => {
   const [person, setPerson] = useState([]);
   const [name, setName] = useState("");
-  // const [time, setTime] = useState(0);
+  const [time, setTime] = useState(0);
+  const [timerOn, setTimeOn] = useState(false);
 
-  const [time, setTime] = React.useState(0);
-  const [timerOn, setTimeOn] = React.useState(false);
+  let slicedTime;
 
-  React.useEffect(() => {
+  //function startTimer(timer) {
+  useEffect(() => {
     let interval = null;
 
     if (timerOn) {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 10);
       }, 10);
+      //timer = time;
     } else {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
   }, [timerOn]);
+  //}
 
   const addPerson = (p) => {
     p.preventDefault();
@@ -46,6 +49,7 @@ const Person = () => {
   function endTime() {
     setTimeOn(false);
     setTime(0);
+    //sliceTime();
   }
 
   return (
