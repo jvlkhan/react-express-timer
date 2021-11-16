@@ -41,6 +41,7 @@ const Person = () => {
     }
   };
 
+  // TODO: fixa rätt body till backend, fel response i clg
   const postPerson = (person) => {
     const initConfig = {
       method: "POST",

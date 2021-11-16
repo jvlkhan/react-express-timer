@@ -22,6 +22,7 @@ app.get("/backend", (req, res) => {
   res.json(person);
 });
 
+// TODO: fixa post, fel response i clg
 app.post("/backend", (req, res) => {
   const newperson = [
     {
