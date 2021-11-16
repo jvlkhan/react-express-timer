@@ -50,23 +50,6 @@ const Person = () => {
 
   return (
     <div>
-      <form onSubmit={addPerson}>
-        <input
-          onChange={(p) => setName(p.target.value)}
-          type="text"
-          placeholder="name"
-        ></input>
-        <br />
-        <input type="submit" value="Add person"></input>
-      </form>
-      {person.map((post) => (
-        <PersonProps
-          name={post.name}
-          time={post.time}
-          id={post.id}
-          handleClick={removePerson}
-        />
-      ))}
       <div>
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
@@ -77,6 +60,23 @@ const Person = () => {
       <button onClick={() => setTimeOn(true)}>Resume</button>
       <button onClick={() => setTime(0)}>Reset</button>
       <button onClick={endTime}>End</button>
+      <hr />
+      <form onSubmit={addPerson}>
+        <input
+          onChange={(p) => setName(p.target.value)}
+          type="text"
+          placeholder="name"
+        ></input>
+        <input type="submit" value="Add person"></input>
+      </form>
+      {person.map((post) => (
+        <PersonProps
+          name={post.name}
+          time={post.time}
+          id={post.id}
+          handleClick={removePerson}
+        />
+      ))}
     </div>
   );
 };

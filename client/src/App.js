@@ -14,7 +14,11 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="App">
+      <h1>Timer</h1>
+      <Person />
+      <hr />
+      <h2>Toplist</h2>
       <div>
         {typeof backendData.grupp === "undefined" ? (
           <p>Loading...</p>
@@ -22,8 +26,7 @@ function App() {
           backendData.grupp.map((grupp, i) => <p key={i}>{grupp}</p>)
         )}
       </div>
-      <Person />
-    </>
+    </div>
   );
 }
 
