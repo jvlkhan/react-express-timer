@@ -35,3 +35,14 @@ app.post('/backend', (req, res) =>{
 
 })
 
+// TODO: fixa post, fel response i clg
+app.post("/backend", (req, res) => {
+  const newperson = [
+    {
+      name: res.send,
+      time: res.send,
+      id: res.send,
+    },
+  ];
+  res.send(newperson);
+});
